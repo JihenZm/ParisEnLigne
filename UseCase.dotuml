@@ -1,0 +1,68 @@
+UseCaseDiagram  [frame=true framecolor=steelblue label="Usecase Diagram"] {
+  attribute usecase [fillcolor=paleturquoise]
+    
+  actor z as "Système" [icon=game]
+  usecase n as "Proposer les événements sportifs et leurs variantes"
+  z -- n
+  usecase m as "Définir les paramétres relatifs aux événements"
+  z -- m
+  usecase x as "Gérer les paris simples et avancés"
+  z -- x
+  usecase o as "Fournir des cotes pour chaque evenement sportif"
+  z -- o
+  usecase p as "Fournir des informations en temps réel sur les evenements sportifs"
+  z -- p
+  usecase q as "Mettre à jour solde du parieur "
+  z -- q
+  usecase r as "Plafonner les gains pour un pari réussi "
+  z -- r
+  usecase cd as "Limiter le montant maximal d'un pari "
+  z -- cd
+  usecase ab as "Gérer les comptes des parieurs "
+  z -- ab
+  usecase jj as "Débiter le compte du parieur du montant du pari "
+  ab -e-> jj
+  usecase kk as "Créditer le compte du parieur en cas de pari réussi "
+  ab -e-> kk
+  usecase ac as "Calculer les gains d'un parieur en cas de pari réussi "
+  z -- ac
+  
+  actor g as "Bookmaker"
+  usecase h as "Déterminer les événements proposés"
+  g -- h
+  usecase i as "Définir les paramètres des événements "
+  g -- i
+  usecase j as "Valider les résultats des paris "
+  g -- j
+  usecase k as "Gérer les cotes des evenements sportifs"
+  g -- k
+  usecase kb as "Ajuster les paramètres prédéfinis par le système"
+  g -- kb
+  usecase limiter_gain as "Limiter le montant maximal d'un pari"
+  kb -e-> limiter_gain
+  usecase plafonner_gains as "Plafonner les gains pour un pari réussi"
+  kb -e-> plafonner_gains
+  usecase bb as "Fixer les ecarts sur les sources"
+  g -- bb
+
+ 
+  actor a as "Parieur"
+  usecase b as "Consulter les événements sportifs en cours"
+  a -- b
+  usecase c as "Consulter les types de paris disponibles "
+  a -- c
+  usecase d as "Placer un pari simple ou avancé "
+  a -- d
+   usecase t as "Spécifier le montant à parier en jettons"
+  a -- t
+  usecase e as "Soumettre le ticket de pari au système "
+  a -- e
+  usecase f as "Recharger des jetons"
+  a -- f
+  usecase l as "Prédire le résultat du pari "
+  a -- l
+  
+
+  
+}
+
