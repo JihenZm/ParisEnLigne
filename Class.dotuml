@@ -1,0 +1,83 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+   class Parieur [fillcolor=palegreen] {
+   private Identifiant : string
+   private Nom : string
+   private Prénom : string  
+   private MotDePasse : string
+
+   private Solde : string
+ 
+ }
+  class Pari [fillcolor=palegreen] {
+  private PariId : string
+  private Nom : string
+  private Montant : string
+  private RésultatParié : string
+  private Statut : e
+  private Cotes : string
+  public CalculerGain()
+  public VérifierRésultat()
+
+ }
+ 
+ 
+ class PariSimple [fillcolor=palegreen]{
+
+ }
+
+  class PariAvance [fillcolor=palegreen] {
+  
+ }
+
+
+  class Bookmaker [fillcolor=palegreen] {
+  private Paramètres : string
+  private Limites : string
+  public GérerÉvénements()
+  public DéfinirParamètres()
+  public ValiderRésultatsÉvénements()
+  public SurveillerActivitéParieurs()
+ }
+   align {
+     Pari
+   Evenement 
+   
+   }
+  class Evenement [fillcolor=palegreen]{
+    private Nom : string
+    private Date : Date 
+    public AjouterPari()
+    public CalculerCotes()
+    public ValiderRésultats()
+
+ }
+   
+ class TypeSport [fillcolor=palegreen] {
+  private Nom : string
+  private Description : string
+   private Regle: string
+
+ }
+  class Basket [fillcolor=palegreen] {
+ }
+  class Tennis [fillcolor=palegreen]{
+ }
+  class CoursesChevaux [fillcolor=palegreen]{
+ }
+  class Football [fillcolor=palegreen] {
+ }
+ 
+ PariSimple -g-> Pari
+ PariAvance -g-> Pari
+ Parieur "1.1" -- "0..*" Pari : "Placer"
+ Evenement "1.1" -- "0..*" Pari : "Appartenir"
+ Bookmaker "1.1" -- "0..*" Evenement : "Gérer"
+ TypeSport "1..*" -- "1" Evenement : "Concerner"
+ Basket -g-> TypeSport
+ Tennis -g-> TypeSport
+ CoursesChevaux -g-> TypeSport
+ Football -g-> TypeSport
+ 
+
+  
+}
