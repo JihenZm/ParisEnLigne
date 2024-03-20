@@ -1,0 +1,22 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor Parieur [fillcolor=orangered]
+  lifeline ":Système" as web [fillcolor=orangered]
+  lifeline ":Bookmaker" as app autoactivate [fillcolor=orangered]
+ 
+  Parieur --> web "1: Démader la liste des évenements disponibles"
+  activate web
+  web --> app "2: Envoyer request"
+  app --> app "3: Vérification"
+
+  app -r-> web "4: Fournir la liste des évenements disponibles"
+  web -r-> Parieur "5: Afficher la liste des évenements "
+  Parieur --> web "6: Sélectionner l'événement voulu"
+
+  Parieur --> web "7: Demander la liste des paris disponibles"
+  web --> app "8: Envoyer request"
+  app --> app "9: Vérification"
+  app -r-> web "10: Fournir la liste des paris disponibles"
+  web -r-> Parieur "11: Afficher la liste des évenements "
+  
+ 
+}

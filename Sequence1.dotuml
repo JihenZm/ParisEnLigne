@@ -1,0 +1,32 @@
+
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor Parieur [fillcolor=orangered]
+  lifeline ":Système" as web [fillcolor=orangered]
+  lifeline ":Bookmaker" as app autoactivate [fillcolor=orangered]
+  fragment ref "Gérer les évenements & choisir Type pari" over Parieur, app 
+  Parieur --> web "1: Sélectionner le résultat parié"
+  Parieur --> web "2: Indiquer le montant du pari en jetons"
+  activate web
+  web --> web "3: Vérifier la disponibilité des fonds du parieur"
+  web --> web "4: Débiter le compte du parieur du montant du pari"
+
+  web --> app "5: Demander la cote pour l'événement sélectionné"
+  app --> app "6: Calculer la cote selon l'algorithme défini"
+  app -r-> web "7: Fournir la cote pour l'événement"
+
+  web -r-> Parieur "8: Confirmer le placement du pari avec les détails"
+  Parieur --> web "9: Confirmer le pari"
+  web --> app "10: Enregistrer le pari dans le système"
+  app --> app "11: Définir les paramètres relatifs à l'évènement"
+  app -r-> web "12: Renvoyer le résultat"
+  
+  fragment alt "[Success]"{
+    web --> app "13: Demander le paiement au bookmaker"
+    app -r-> web "14: Verser les gains au système"
+    web -r-> Parieur "15: Créditer le compte du parieur"
+    
+  case "[Echec]"
+    Parieur <-r- web "13: Aucun gain n'est versé"
+ 
+  }
+}

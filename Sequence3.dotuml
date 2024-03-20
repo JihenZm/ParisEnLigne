@@ -1,0 +1,12 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor Parieur [fillcolor=orangered]
+  lifeline ":Système" as web [fillcolor=orangered]
+
+  Parieur --> web "1: Sélectionner un évenement sportif"
+  Parieur --> web "2: Choisir un type de pari"
+  Parieur --> web "3: Prédire le résultat du pari"
+  Parieur --> web "4: Spécifier le montant à parier en jettons"
+  Parieur --> web "5: Soumettre le ticket de pari au système"
+  Parieur --> web "6: Calculer la cote selon l'algorithme défini"
+  web -r-> Parieur "7: Retour de validation"
+}

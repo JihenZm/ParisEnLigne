@@ -1,0 +1,11 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor Bookmaker [fillcolor=orangered]
+  lifeline ":Système" as web [fillcolor=orangered]
+
+  Bookmaker --> web "1: Déterminer les évenements à proposer pour les paris"
+  Bookmaker --> web "2: Fixer les cotes initiales pour les évenements sportifs"
+  Bookmaker --> web "3: Ajuster les cotes en fonction des nouvelles fonctions"
+  Bookmaker --> web "4: Limiter le montant maximal d'un pari"
+  Bookmaker --> web "5: Plafonner les gains pour un pari réussi"
+  web -r-> Bookmaker "6: Retour de validation"
+}
