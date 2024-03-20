@@ -1,10 +1,9 @@
 ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
    class Parieur [fillcolor=palegreen] {
-   private Identifiant : string
+   private ParieurId : string
    private Nom : string
    private Prénom : string  
    private MotDePasse : string
-
    private Solde : string
  
  }
@@ -13,7 +12,7 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
   private Nom : string
   private Montant : string
   private RésultatParié : string
-  private Statut : e
+  private Statut : statut
   private Cotes : string
   public CalculerGain()
   public VérifierRésultat()
@@ -31,6 +30,7 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
 
 
   class Bookmaker [fillcolor=palegreen] {
+  private BookmakerId : string
   private Paramètres : string
   private Limites : string
   public GérerÉvénements()
@@ -44,6 +44,7 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
    
    }
   class Evenement [fillcolor=palegreen]{
+    private EvenementId : string
     private Nom : string
     private Date : Date 
     public AjouterPari()
@@ -53,9 +54,10 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
  }
    
  class TypeSport [fillcolor=palegreen] {
+  private SportId : string
   private Nom : string
   private Description : string
-   private Regle: string
+  private Regle: string
 
  }
   class Basket [fillcolor=palegreen] {
@@ -77,7 +79,5 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
  Tennis -g-> TypeSport
  CoursesChevaux -g-> TypeSport
  Football -g-> TypeSport
- 
-
   
 }
